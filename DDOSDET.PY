@@ -1,27 +1,13 @@
 import os, statistics, time, logging, re
-
-# Set up the logger
 logger = logging.getLogger('attack_detector')
 logger.setLevel(logging.DEBUG)
-
-# Create a handler to log to the console
 ch = logging.StreamHandler()
 ch.setLevel(logging.DEBUG)
-
-# Set the format for the log messages
 formatter = logging.Formatter('[%(asctime)s] %(levelname)s: %(message)s', datefmt='%m/%d/%Y %I:%M:%S%p')
 ch.setFormatter(formatter)
-
-# Add the handler to the logger
 logger.addHandler(ch)
-
-#Should the suspected attacker blocked?
 block_attacker = False
-
-# Set interval for when the program should check
 sleep_interval = 15
-
-# Set threshold for number of connections
 connection_threshold = 1000
 
 # Initialize list to store previous number of connections
